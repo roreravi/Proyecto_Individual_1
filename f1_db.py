@@ -8,6 +8,13 @@ app = FastAPI()
 
 #conectamos con la base de datos e instanciamos
 conn = sqlite3.connect("f1.db")
+# conn = sqlite3.connect("f2.db") : f2 es la base de datos actualizada hasta 2022 
+# donde se confirma que la carrera TBC (To Be Confirmed)no se realizó lo cual altera 
+# la query 4 y de hecho la presencia de una carrera llamada TBC indica que se trata
+# de un calendario y no de un registro de carreras realizadas por lo que se concluye
+# que la data incluso puede ser de 2020
+
+
 
 #leemos las tablas con pandas
 circuits = pd.read_sql('select * from circuits;', conn)
@@ -55,7 +62,7 @@ def read_root():
 # Y por ultimo creamos enlaces a las querys solicitadas
 
 # 1. Año con mas carreras (Nota: en 2021 hay una carrera llamada TBC: significa "to be confirmed".. No cuenta)
-year_max = pd.read_sql('select r.year as "Year", count(r.raceId) as "Races for Year" from races r group by "Year" order by "Races for Year" desc limit 2;', conn)
+year_max = pd.read_sql('select r.year as "Year", count(r.raceId) as "Races for Year" from races r group by "Year" order by "Races for Year" desc limit 1;', conn)
    
 @app.get('/query_1')
 def read_root():
