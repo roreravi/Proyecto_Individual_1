@@ -7,7 +7,7 @@ import json
 app = FastAPI()
 
 #conectamos con la base de datos e instanciamos
-conn = sqlite3.connect("f2.db")
+conn = sqlite3.connect("f1.db")
 
 #leemos las tablas con pandas
 circuits = pd.read_sql('select * from circuits;', conn)
