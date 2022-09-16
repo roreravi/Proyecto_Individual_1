@@ -2,7 +2,7 @@
 Implementación de FastAPI y SQL al dataset F1 World Championship (1950-2022)
 
 # Requerimientos
-La API esta desarrollada en Python y las librerias Pandas, Sqlite3, FastAPI, Uvicorn y Gunicorn. Tambien se usa la libreria Request para el consumo de los datos desde Heroku donse se hace el deploy.
+La API esta desarrollada en Python y las librerias Pandas, Sqlite3, FastAPI, Uvicorn y Gunicorn. Tambien se usa la libreria Request para el consumo de los datos desde Heroku donde se hace el deploy.
 
 # Implementacion
 Para la implementación se instancia la clase FastAPI() 
